@@ -8,7 +8,7 @@ local scr = {}
 local count = 0
 local barXpos = 16
 --Function to display system information
-function sysInfo()
+function scr.drawSysInfo()
     local logo_small = paintutils.loadImage("dPOS-Logo_Small.nfp")
     paintutils.drawImage(logo_small,1,1)
     term.setBackgroundColor(colors.black)
@@ -25,10 +25,10 @@ function sysInfo()
     term.setCursorPos(12,3)
     term.write(ver.." build "..build_type.." "..build_num)
     term.setCursorPos(12,5)
-    term.write("Copyright © ASoft Corp. 2025-2027")
+    term.write("Copyright Â© ASoft Corp. 2025-2027")
 end
 --Function to display startup screen
-function scr.startupScreen()
+function scr.drawLogoBig()
     sleep(0.5)
     local logo_big = paintutils.loadImage("dPOS-Logo.nfp")
     paintutils.drawImage(logo_big,15,1)
@@ -46,7 +46,10 @@ function scr.startupScreen()
     term.setCursorPos(11,14)
     term.write(ver.." build "..build_type.." "..build_num)
     term.setCursorPos(9,18)
-    term.write("Copyright © ASoft Corp. 2025-2027")
+    term.write("Copyright Â© ASoft Corp. 2025-2027")
+end
+function scr.startupScreen()
+    scr.drawLogoBig()
     paintutils.drawLine(16,16,34,16,colors.white)
     sleep(0.5)
     repeat
@@ -59,14 +62,11 @@ function scr.startupScreen()
     term.setBackgroundColor(colors.black)
     shell.run("clear")
     sleep(0.5)
-    sysInfo()
+    scr.drawSysInfo()
     paintutils.drawBox(1,8,51,13,colors.white)
     term.setBackgroundColor(colors.black)
     term.setTextColor(colors.blue)
     term.setCursorPos(22,9)
     term.write("USER LOGIN")
-end
-function scr.drawSysInfo()
-    sysInfo()
 end
 return scr
