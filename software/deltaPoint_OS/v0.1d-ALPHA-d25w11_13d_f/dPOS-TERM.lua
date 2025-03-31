@@ -7,19 +7,22 @@ function scr.cmdInput()
     write(">>>> ")
     cmd = read()
     cmd = string.lower(cmd)
+    parseCmd()
 end
 --Function to process inputted command
-function scr.parseCmd()
+function parseCmd()
     if cmd == "clear" then
         term.clear()
         SP.drawSysInfo()
         term.setCursorPos(1,9)
         scr.cmdInput()
     elseif cmd == "exit" or cmd == "shutdown" then
+        SP.drawLogoBig()
+        term.setCursorPos(16,16)
         term.setTextColor(colors.red)
-        print("Shutting down dPOS...")
+        print("Shutting down ...")
         term.setTextColor(colors.white)
-        sleep(0.5)
+        sleep(2)
         shell.run("clear")
     else
         term.setTextColor(colors.red)
