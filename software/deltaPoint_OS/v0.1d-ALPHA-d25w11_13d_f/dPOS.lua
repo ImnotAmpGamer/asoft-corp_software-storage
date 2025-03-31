@@ -1,6 +1,6 @@
 --[[
 deltaPoint OS (dPOS)
-Copyright © ASoft Corp 2025-2027
+Copyright Â© ASoft Corp 2025-2027
 All rights reserved.
 Do not distribute without permission!
 ]]
@@ -26,4 +26,3 @@ print("Welcome to deltaPoint OS!")
 term.setTextColor(colors.white)
 print("Logged in as "..currentUser..".")
 TERM.cmdInput()
-TERM.parseCmd()
